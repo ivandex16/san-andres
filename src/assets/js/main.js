@@ -52,3 +52,9 @@ Author: GrayGrids
     navbarToggler.classList.toggle("active");
   });
 })();
+
+
+
+// $(document).ready(() => $("#content_main").load("./pages/home.html"));
+// $(document).ready(() => $("#footer").load("./components/footer.html"));
+
