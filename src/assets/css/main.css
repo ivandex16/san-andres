@@ -1542,6 +1542,12 @@ ol {
     opacity: 1;
     visibility: visible;
   }
+
+  .active-head-menu {
+    background: #fff !important;
+    color: #0069ff !important;
+  }
+
   .header .navbar-nav .nav-item .sub-menu li.active {
     background: #fff !important;
     color: #0069ff !important;
@@ -1812,6 +1818,7 @@ ol {
   color: #0069ff;
 }
 
+/* items menu  */
 .navbar-nav .nav-item a {
   font-size: 15px;
   color: #ffffffa1;
@@ -1829,6 +1836,14 @@ ol {
   transition: all 0.3s ease-out 0s;
   position: relative;
   text-transform: capitalize;
+}
+
+.nav-items-alternativo:hover {
+  color: #0069ff !important;
+}
+/* clase para cuando la pagina no es la home.html */
+.nav-items-alternativo {
+  color: #27314f !important;
 }
 
 .navbar-nav .nav-item:hover a:before {
@@ -3021,6 +3036,23 @@ ol {
   .pricing-style2 .section-title {
     margin-bottom: 30px;
   }
+}
+
+/* plantas estilos */
+.plantas-estilos {
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.068);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.068);
+  background-color: #fff;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.plantas-estilos:hover {
+  -webkit-box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.116);
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.116);
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
 }
 
 .pricing-style2 .single-pricing {
