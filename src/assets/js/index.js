@@ -93,7 +93,7 @@ $(document).ready(() => {
     } else {
       console.log("Estamos en otra página. Ajustando el color.");
       $(".nav-item a").addClass("nav-items-alternativo"); // Estilo para otras páginas
-      $;
+
       //$(".nav-item ").removeClass("nav-item"); // Eliminar clase de la página home
     }
 
