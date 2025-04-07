@@ -85,19 +85,64 @@ $(document).ready(() => {
 
   // Función para manejar el estilo del navbar
   const ajustarEstiloNavbar = (page) => {
-    // Validar si la página cargada es la home
+    var header_navbar = $(".navbar-area");
+
+    var logo = $(".navbar-brand img"); // Definir logo fuera del bloque if/else para que sea accesible
+
+    $(window).off("scroll");
+    var sticky = header_navbar.offset().top; // Usar .offset().top para obtener la posición superior
     if (page.includes("home.html")) {
       console.log("Estamos en la página Home. Restaurando estilo.");
-      //$(".nav-item a").css("color", "white"); // Estilo para la página home
       $(".nav-item a").removeClass("nav-items-alternativo");
+
+      $(window).on("scroll", function () {
+        if ($(window).scrollTop() > sticky) {
+          header_navbar.addClass("sticky");
+          logo.attr("src", "assets/images/logo/san-andres-logo.png");
+        } else {
+          header_navbar.removeClass("sticky");
+          logo.attr("src", "assets/images/logo/san-andres-logo-white.png");
+        }
+
+        // Mostrar u ocultar el botón de "back-to-top"
+        var $backToTop = $(".scroll-top");
+        if ($backToTop.length) {
+          if ($(window).scrollTop() > 50) {
+            $backToTop.css("display", "flex");
+          } else {
+            $backToTop.css("display", "none");
+          }
+        }
+      });
     } else {
       console.log("Estamos en otra página. Ajustando el color.");
-      $(".nav-item a").addClass("nav-items-alternativo"); // Estilo para otras páginas
+      $(".nav-item a").addClass("nav-items-alternativo");
 
-      //$(".nav-item ").removeClass("nav-item"); // Eliminar clase de la página home
+      // Asegurar que la imagen del logo siempre sea la misma
+      // Asegurar que la imagen del logo siempre sea la misma
+      logo.attr("src", "assets/images/logo/san-andres-logo.png");
+
+      // Mantener el evento scroll activo
+      var sticky = header_navbar.offset().top;
+      $(window).on("scroll", function () {
+        if ($(window).scrollTop() > sticky) {
+          header_navbar.addClass("sticky");
+        } else {
+          header_navbar.removeClass("sticky");
+          // Aquí no cambiamos la imagen del logo
+        }
+
+        // Mostrar u ocultar el botón de "back-to-top"
+        var $backToTop = $(".scroll-top");
+        if ($backToTop.length) {
+          if ($(window).scrollTop() > 50) {
+            $backToTop.css("display", "flex");
+          } else {
+            $backToTop.css("display", "none");
+          }
+        }
+      });
     }
-
-    ejecutarLogicaPorPaginas(page); // Ejecutar lógica específica para la página cargada
   };
 
   const ejecutarLogicaPorPaginas = (page) => {
